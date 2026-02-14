@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Truth Colors */
+  --color-base: #FFFEF9;
+  /* Light cream background */
+  --color-primary: #FFCA41;
+  /* Golden Yellow for buttons */
+  --color-secondary: #635BFF;
+  /* Purple accent */
+  --color-text-main: #2D2424;
+  /* Dark brown/black for main text */
+  --color-text-sub: #5C5454;
+  /* Lighter text for subheadings */
+
+  /* Grid Pattern Configuration */
+  --grid-color: rgba(0, 0, 0, 0.05);
+  /* Very light grid lines */
+  --grid-size: 40px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-base: var(--color-base);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-text-main: var(--color-text-main);
+  --color-text-sub: var(--color-text-sub);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-base);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+
+  /* Grid Background Implementation */
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: center top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-main);
+  font-weight: 700;
+  /* Bold headings as per design */
+}
+
+p {
+  color: var(--color-text-sub);
+  line-height: 1.6;
 }
