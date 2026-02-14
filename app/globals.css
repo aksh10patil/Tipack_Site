@@ -12,6 +12,8 @@
   /* Dark brown/black for main text */
   --color-text-sub: #5C5454;
   /* Lighter text for subheadings */
+  --color-accent-green: #00D64F;
+  /* Vibrant green for success/features */
 
   /* Grid Pattern Configuration */
   --grid-color: rgba(0, 0, 0, 0.05);

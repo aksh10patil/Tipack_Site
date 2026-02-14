@@ -40,7 +40,7 @@ export default function Hero() {
 
                 {/* Heading Group */}
                 <div className="flex flex-col items-center font-black text-[#2D2424]">
-                    <span className="text-2xl md:text-3xl font-bold mb-2">Make Really Ducking Good</span>
+                    <span className="text-2xl md:text-3xl font-bold mb-2">Make Really Tipacking Good</span>
                     <div className="relative inline-block">
                         <span className="text-6xl md:text-8xl tracking-tighter relative z-10" style={{ fontFamily: 'var(--font-heading)' }}>
                             Packaging
@@ -49,8 +49,8 @@ export default function Hero() {
                         {/* Cellotape Effect */}
                         <div
                             className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[130%] z-20 pointer-events-none transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) ${isTaped
-                                    ? 'opacity-100 rotate-[-2deg] scale-100'
-                                    : 'opacity-0 rotate-[5deg] scale-110'
+                                ? 'opacity-100 rotate-[-2deg] scale-100'
+                                : 'opacity-0 rotate-[5deg] scale-110'
                                 }`}
                         >
                             <div className="w-full h-full bg-[#FFE58F]/40 backdrop-blur-[4px]"

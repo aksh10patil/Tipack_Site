@@ -31,7 +31,10 @@ export default function RootLayout({
         className={`${outfit.variable} ${inter.variable} antialiased font-sans`}
       >
         <Navbar />
-        {children}
+        <main className="pt-32 min-h-screen">
+          {children}
+        </main>
+
       </body>
     </html>
   );
