@@ -6,6 +6,7 @@ import TipackShowcase from '@/components/tipack-ui/TipackShowcase';
 import TipackTestimonial from '@/components/tipack-ui/TipackTestimonial';
 import { Package, Zap, Leaf } from 'lucide-react';
 import Hero from '@/components/Hero';
+import CelloTape from '@/components/CelloTape';
 
 export default function TipackDemoPage() {
     return (
@@ -13,17 +14,17 @@ export default function TipackDemoPage() {
 
             <main>
                 <Hero />
-
+                <CelloTape />
             </main>
             <div className="min-h-screen bg-[var(--color-base)] p-8 md:p-16 space-y-24">
 
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-black font-heading tracking-tight mb-6 text-[var(--color-text-main)]">
-                        The <span className="text-[var(--color-secondary)]">Tipack</span> UI Kit
+                        The <span className="text-[var(--color-secondary)]">Tipack</span> Features
                     </h1>
                     <p className="text-xl text-[var(--color-text-sub)]">
-                        A collection of vibrant, playful, and conversion-focused components for your packaging brand.
+                        A collection of vibrant, playful, and conversion-focused packaging for your brand.
                     </p>
                 </div>
 

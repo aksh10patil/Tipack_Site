@@ -46,24 +46,40 @@ export default function Hero() {
                             Packaging
                         </span>
 
-                        {/* Cellotape Effect */}
+
                         <div
-                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[130%] z-20 pointer-events-none transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) ${isTaped
+                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[130%] z-20 pointer-events-none transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-stretch ${isTaped
                                 ? 'opacity-100 rotate-[-2deg] scale-100'
                                 : 'opacity-0 rotate-[5deg] scale-110'
                                 }`}
                         >
-                            <div className="w-full h-full bg-[#FFE58F]/40 backdrop-blur-[4px]"
+                            {/* LEFT Jagged Edge (Stroked, No "z" close) */}
+                            <div
+                                className="w-[15px] shrink-0"
                                 style={{
-                                    clipPath: 'polygon(2% 0%, 98% 0%, 100% 10%, 98% 20%, 100% 30%, 98% 40%, 100% 50%, 98% 60%, 100% 70%, 98% 80%, 100% 90%, 98% 100%, 2% 100%, 0% 90%, 2% 80%, 0% 70%, 2% 60%, 0% 50%, 2% 40%, 0% 30%, 2% 20%, 0% 10%)',
-                                    filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='24' viewBox='0 0 15 24'%3E%3Cpath fill='rgba(255,255,255,0.1)' stroke='black' stroke-width='4' d='M15 0H0l2.5 2-1.5 2 3 3-2 3 2.5 2-1.5 2 3 3-2 3 2.5 2-1.5 2H15'/%3E%3C/svg%3E")`,
+                                    backgroundPosition: "right top",
+                                    backgroundRepeat: "repeat-y",
+                                    backgroundSize: "15px 24px",
                                 }}
-                            >
-                                {/* Reflection/Sheen */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/10 to-transparent opacity-90"></div>
-                                <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-white/50 to-transparent"></div>
-                                <div className="absolute bottom-0 right-0 w-[80%] h-[80%] bg-gradient-to-tl from-white/20 to-transparent rounded-tl-full opacity-60"></div>
+                            />
+
+                            {/* Middle Body */}
+                            <div className="flex-1 bg-white/10 backdrop-blur-[2px] border-y-2 border-black relative">
+                                {/* Shine/Reflection */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-50"></div>
                             </div>
+
+                            {/* RIGHT Jagged Edge (Stroked, No "z" close) */}
+                            <div
+                                className="w-[15px] shrink-0"
+                                style={{
+                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='24' viewBox='0 0 15 24'%3E%3Cpath fill='rgba(255,255,255,0.1)' stroke='black' stroke-width='4' d='M0 0h15l-2.5 2 1.5 2-3 3 2 3-2.5 2 1.5 2-3 3 2 3-2.5 2 1.5 2H0'/%3E%3C/svg%3E")`,
+                                    backgroundPosition: "left top",
+                                    backgroundRepeat: "repeat-y",
+                                    backgroundSize: "15px 24px",
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
