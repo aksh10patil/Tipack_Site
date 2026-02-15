@@ -5,8 +5,14 @@ interface TipackFeatureCardProps {
     title: string;
     description: string;
     variant?: 'purple' | 'green' | 'yellow' | 'default';
-    icon?: React.ReactNode;
+    icon?: React.ReactElement<{
+        className?: string;
+        strokeWidth?: number;
+        size?: number;
+    }>;
 }
+
+
 
 export default function TipackFeatureCard({
     title,
@@ -76,7 +82,14 @@ export default function TipackFeatureCard({
                         transition-transform duration-300 group-hover:rotate-6
                         ${currentStyle.iconBg} ${currentStyle.iconColor}
                     `}>
-                        {icon ? React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8", strokeWidth: 2.5 }) : <Box size={32} strokeWidth={2.5} />}
+                      {icon
+    ? React.cloneElement(icon, {
+          className: "w-8 h-8",
+          strokeWidth: 2.5,
+      })
+    : <Box size={32} strokeWidth={2.5} />
+}
+
                     </div>
 
                     <h3 className="text-2xl font-black font-heading tracking-tight mb-3 text-[var(--color-text-main)]">
