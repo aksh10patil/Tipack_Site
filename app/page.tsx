@@ -7,6 +7,7 @@ import TipackTestimonial from '@/components/tipack-ui/TipackTestimonial';
 import { Package, Zap, Leaf } from 'lucide-react';
 import Hero from '@/components/Hero';
 import CelloTape from '@/components/CelloTape';
+import TipackFooter from '@/components/Footer';
 
 export default function TipackDemoPage() {
     return (
@@ -106,7 +107,7 @@ export default function TipackDemoPage() {
                     </div>
                 </section>
 
-                {/* 5. Testimonial */}
+          
                 <section className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-bold mb-8 text-center">5. Testimonial</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -126,8 +127,11 @@ export default function TipackDemoPage() {
                         />
                     </div>
                 </section>
+             
 
             </div>
+
+               <TipackFooter />
 
         </>
 

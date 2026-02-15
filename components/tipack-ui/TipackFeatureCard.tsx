@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Box, ShieldCheck, Truck } from 'lucide-react';
+import { ArrowRight, Box } from 'lucide-react';
 
 interface TipackFeatureCardProps {
     title: string;
@@ -14,40 +14,87 @@ export default function TipackFeatureCard({
     variant = 'default',
     icon,
 }: TipackFeatureCardProps) {
-    const bgColors = {
-        purple: 'bg-[var(--color-secondary)] text-white',
-        green: 'bg-[var(--color-accent-green)] text-white',
-        yellow: 'bg-[var(--color-primary)] text-[var(--color-text-main)]',
-        default: 'bg-white border-2 border-[var(--color-text-main)] text-[var(--color-text-main)]',
+    // We map variants to accent colors for the blob and icon, 
+    // keeping the card base white to match the newsletter style.
+    const accents = {
+        purple: {
+            blob: 'bg-[var(--color-secondary)]',
+            iconBg: 'bg-[var(--color-secondary)]/10',
+            iconColor: 'text-[var(--color-secondary)]'
+        },
+        green: {
+            blob: 'bg-[var(--color-accent-green)]', // Assuming you have this or use a hex
+            iconBg: 'bg-green-100',
+            iconColor: 'text-green-600'
+        },
+        yellow: {
+            blob: 'bg-[var(--color-primary)]',
+            iconBg: 'bg-[var(--color-primary)]/20',
+            iconColor: 'text-amber-700'
+        },
+        default: {
+            blob: 'bg-gray-200',
+            iconBg: 'bg-gray-100',
+            iconColor: 'text-[var(--color-text-main)]'
+        },
     };
 
+    const currentStyle = accents[variant] || accents.default;
     const IconDisplay = icon || <Box className="w-8 h-8" />;
 
     return (
-        <div
-            className={`
-        relative p-8 rounded-3xl overflow-hidden group transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl
-        ${bgColors[variant]}
-      `}
-        >
-            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:rotate-12 scale-150">
-                {IconDisplay}
-            </div>
+        <div className="group relative h-full">
+            {/* The Card Container - Matches Newsletter Architecture */}
+            <div className="
+                relative h-full flex flex-col justify-between
+                bg-white 
+                border-2 border-[var(--color-text-main)] 
+                rounded-[2.5rem] 
+                p-8 
+                shadow-[8px_8px_0px_0px_var(--color-text-main)] 
+                transition-all duration-300 
+                hover:shadow-[12px_12px_0px_0px_var(--color-text-main)] 
+                hover:-translate-y-1
+                overflow-hidden
+            ">
+                
+                {/* Decorative Background Blob (like the Newsletter) */}
+                <div 
+                    className={`
+                        absolute -top-12 -right-12 w-40 h-40 rounded-full blur-2xl opacity-20 
+                        transition-transform duration-500 group-hover:scale-150
+                        ${currentStyle.blob}
+                    `} 
+                />
 
-            <div className="relative z-10 flex flex-col h-full justify-between">
-                <div className="mb-6">
-                    <div className="mb-4 inline-flex items-center justify-center p-3 rounded-2xl bg-white/20 backdrop-blur-sm">
-                        {IconDisplay}
+                {/* Content Wrapper */}
+                <div className="relative z-10">
+                    {/* Icon Container */}
+                    <div className={`
+                        w-16 h-16 rounded-2xl flex items-center justify-center mb-6 
+                        border-2 border-[var(--color-text-main)]/10
+                        transition-transform duration-300 group-hover:rotate-6
+                        ${currentStyle.iconBg} ${currentStyle.iconColor}
+                    `}>
+                        {icon ? React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8", strokeWidth: 2.5 }) : <Box size={32} strokeWidth={2.5} />}
                     </div>
-                    <h3 className="text-2xl font-bold font-heading mb-3">{title}</h3>
-                    <p className={`text-sm leading-relaxed ${variant === 'yellow' || variant === 'default' ? 'text-[var(--color-text-sub)]' : 'text-white/90'}`}>
+
+                    <h3 className="text-2xl font-black font-heading tracking-tight mb-3 text-[var(--color-text-main)]">
+                        {title}
+                    </h3>
+                    
+                    <p className="text-[var(--color-text-sub)] font-medium leading-relaxed mb-8">
                         {description}
                     </p>
                 </div>
 
-                <div className="mt-auto">
-                    <button className="flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all">
-                        Learn more <ArrowRight className="w-4 h-4" />
+                {/* Action Area */}
+                <div className="relative z-10 mt-auto">
+                    <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--color-text-main)] group/btn">
+                        Learn more 
+                        <span className="bg-[var(--color-text-main)] text-white rounded-full p-1 transition-transform group-hover/btn:translate-x-1">
+                            <ArrowRight size={14} />
+                        </span>
                     </button>
                 </div>
             </div>
