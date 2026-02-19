@@ -25,7 +25,7 @@ export default function TipackComparisonTable({ rows }: TipackComparisonTablePro
                     <div className="absolute -top-6 rotate-6 bg-[var(--color-primary)] text-[var(--color-text-main)] px-3 py-1 rounded-full text-xs font-bold border border-black shadow-sm z-10 animate-bounce">
                         Best Choice!
                     </div>
-                    <span className="text-xl font-bold text-[var(--color-secondary)]">TipackPak</span>
+                    <span className="text-xl font-bold text-[var(--color-secondary)]">Tipack</span>
                     <div className="w-16 h-1.5 bg-[var(--color-secondary)] mt-2 rounded-full" />
                 </div>
             </div>

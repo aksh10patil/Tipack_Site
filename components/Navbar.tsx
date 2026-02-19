@@ -2,30 +2,22 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { Button } from "./Button"; // Assuming you have this component
+import { ChevronDown, Menu, X, Box, Printer, Truck, PenTool, Package } from "lucide-react";
+import { Button } from "./Button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // 1. Define the Tape Color here so edges and body match perfectly.
-  // This is a classic "Masking Tape" Yellow.
+  // 1. Define the Tape Color
   const TAPE_COLOR = "%23F4D03F"; // URL Encoded #F4D03F
 
-  // 2. Updated SVG Data URIs for a cleaner "Serrated" tape dispenser look.
-  // We use a smaller viewport and repeat-y to handle any height.
+  // 2. Serrated Edge SVGs
   const serratedEdgeSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='${TAPE_COLOR}' d='M12 0L0 6l12 6V0z'/%3E%3C/svg%3E`;
-  
-  // For the right side, we just flip the logic (or rotate the div)
   const serratedEdgeRightSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='${TAPE_COLOR}' d='M0 0l12 6-12 6V0z'/%3E%3C/svg%3E`;
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-8 font-sans">
-      {/* The "Tape" Container 
-        The drop-shadow filter is applied to the PARENT. 
-        Because the children (Left, Right, Center) are the same color and touch,
-        the filter treats them as one continuous shape and draws the outline around the whole group.
-      */}
+      {/* The "Tape" Container */}
       <div
         className="relative w-full max-w-6xl transform -rotate-1 transition-transform hover:rotate-0 duration-300 ease-out"
         style={{
@@ -45,7 +37,7 @@ export default function Navbar() {
             backgroundImage: `url("${serratedEdgeSvg}")`,
             backgroundPosition: "right top",
             backgroundRepeat: "repeat-y",
-            backgroundSize: "12px 12px", // Controls the size of the "teeth"
+            backgroundSize: "12px 12px",
           }}
         />
 
@@ -62,9 +54,8 @@ export default function Navbar() {
 
         {/* Main Tape Body */}
         <nav className="relative bg-[#F4D03F] px-6 py-4 flex items-center justify-between">
-          
-          {/* Texture Overlay - Improved for "Tint" look */}
-          {/* We use mix-blend-multiply to make the paper texture look embedded in the yellow */}
+
+          {/* Texture Overlay */}
           <div
             className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply"
             style={{
@@ -72,26 +63,93 @@ export default function Navbar() {
               backgroundSize: "300px auto",
             }}
           />
-          
-          {/* Subtle noise/grain for extra realism (Optional) */}
-           <div className="absolute inset-0 pointer-events-none opacity-10 bg-white mix-blend-overlay" />
+          <div className="absolute inset-0 pointer-events-none opacity-10 bg-white mix-blend-overlay" />
 
-          {/* Left Links */}
-          <div className="hidden md:flex items-center gap-6 text-sm font-bold text-[#2D2424] z-10">
-            <div className="flex items-center gap-1 cursor-pointer group">
-              Products{" "}
-              <ChevronDown
-                size={14}
-                className="group-hover:translate-y-0.5 transition-transform"
-              />
+          {/* Left Links (Desktop) */}
+          <div className="hidden md:flex items-center gap-8 text-sm font-bold text-[#2D2424] z-10">
+
+            {/* --- PRODUCTS DROPDOWN --- */}
+            <div className="group relative h-full">
+              <div className="flex items-center gap-1 cursor-pointer py-2">
+                Products{" "}
+                <ChevronDown
+                  size={14}
+                  className="group-hover:rotate-180 transition-transform duration-200"
+                />
+              </div>
+
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 pt-4 w-64 hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">
+                {/* The "Card" Look */}
+                <div className="bg-[#FFFEF9] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col gap-2 relative">
+                  {/* Little triangle pointer (optional aesthetic) */}
+                  <div className="absolute -top-[9px] left-4 w-4 h-4 bg-[#FFFEF9] border-l-2 border-t-2 border-black transform rotate-45"></div>
+
+                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <Box size={18} className="mt-0.5" />
+                    <div>
+                      <div className="text-sm font-black">Boxes & Mailers</div>
+                      <div className="text-xs font-normal opacity-70">Corrugated & rigid options</div>
+                    </div>
+                  </Link>
+                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <Package size={18} className="mt-0.5" />
+                    <div>
+                      <div className="text-sm font-black">Adhesives</div>
+                      <div className="text-xs font-normal opacity-70">Tapes, glues & sealants</div>
+                    </div>
+                  </Link>
+                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <div className="w-[18px] text-center font-serif italic font-bold">!</div>
+                    <div>
+                      <div className="text-sm font-black">Clearance</div>
+                      <div className="text-xs font-normal opacity-70">Last chance items</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1 cursor-pointer group">
-              Services{" "}
-              <ChevronDown
-                size={14}
-                className="group-hover:translate-y-0.5 transition-transform"
-              />
+
+            {/* --- SERVICES DROPDOWN --- */}
+            <div className="group relative h-full">
+              <div className="flex items-center gap-1 cursor-pointer py-2">
+                Services{" "}
+                <ChevronDown
+                  size={14}
+                  className="group-hover:rotate-180 transition-transform duration-200"
+                />
+              </div>
+
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 pt-4 w-64 hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="bg-[#FFFEF9] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col gap-2 relative">
+                  <div className="absolute -top-[9px] left-4 w-4 h-4 bg-[#FFFEF9] border-l-2 border-t-2 border-black transform rotate-45"></div>
+
+                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <Printer size={18} className="mt-0.5" />
+                    <div>
+                      <div className="text-sm font-black">Custom Printing</div>
+                      <div className="text-xs font-normal opacity-70">Branded packaging</div>
+                    </div>
+                  </Link>
+                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <Truck size={18} className="mt-0.5" />
+                    <div>
+                      <div className="text-sm font-black">Logistics</div>
+                      <div className="text-xs font-normal opacity-70">Warehousing & shipping</div>
+                    </div>
+                  </Link>
+                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                    <PenTool size={18} className="mt-0.5" />
+                    <div>
+                      <div className="text-sm font-black">Design Studio</div>
+                      <div className="text-xs font-normal opacity-70">Get help with artwork</div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
+
             <Link href="#" className="hover:opacity-70 transition-opacity">
               Brands
             </Link>
@@ -144,10 +202,10 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="absolute top-[calc(100%_+_10px)] left-0 right-0 p-6 bg-[#FFFEF9] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 animate-in slide-in-from-top-2 duration-200 z-40">
             <div className="flex flex-col space-y-4 text-center text-[#2D2424] font-bold">
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link href="/Products" className="hover:text-yellow-600 transition-colors">
                 Products
               </Link>
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link href="/Services" className="hover:text-yellow-600 transition-colors">
                 Services
               </Link>
               <Link href="#" className="hover:text-yellow-600 transition-colors">

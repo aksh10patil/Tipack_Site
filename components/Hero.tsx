@@ -46,41 +46,41 @@ export default function Hero() {
                             Packaging
                         </span>
 
-
+                        {/* UPDATED TAPE EFFECT */}
                         <div
-                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-[130%] z-20 pointer-events-none transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-stretch ${isTaped
-                                ? 'opacity-100 rotate-[-2deg] scale-100'
-                                : 'opacity-0 rotate-[5deg] scale-110'
+                            // Changed opacity-90 to opacity-100 for less transparency
+                            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[80%] z-20 pointer-events-none transition-all duration-700 cubic-bezier(0.2, 0.8, 0.2, 1) flex items-center justify-center ${isTaped
+                                ? 'opacity-40 rotate-[-2deg] scale-100'
+                                : 'opacity-0 rotate-[5deg] scale-150 translate-y-10'
                                 }`}
                         >
-                            {/* LEFT Jagged Edge (Stroked, No "z" close) */}
-                            <div
-                                className="w-[15px] shrink-0"
-                                style={{
-                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='24' viewBox='0 0 15 24'%3E%3Cpath fill='rgba(255,255,255,0.1)' stroke='black' stroke-width='4' d='M15 0H0l2.5 2-1.5 2 3 3-2 3 2.5 2-1.5 2 3 3-2 3 2.5 2-1.5 2H15'/%3E%3C/svg%3E")`,
-                                    backgroundPosition: "right top",
-                                    backgroundRepeat: "repeat-y",
-                                    backgroundSize: "15px 24px",
-                                }}
-                            />
-
-                            {/* Middle Body */}
-                            <div className="flex-1 bg-white/10 backdrop-blur-[2px] border-y-2 border-black relative">
-                                {/* Shine/Reflection */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-50"></div>
-                            </div>
-
-                            {/* RIGHT Jagged Edge (Stroked, No "z" close) */}
-                            <div
-                                className="w-[15px] shrink-0"
-                                style={{
-                                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='24' viewBox='0 0 15 24'%3E%3Cpath fill='rgba(255,255,255,0.1)' stroke='black' stroke-width='4' d='M0 0h15l-2.5 2 1.5 2-3 3 2 3-2.5 2 1.5 2-3 3 2 3-2.5 2 1.5 2H0'/%3E%3C/svg%3E")`,
-                                    backgroundPosition: "left top",
-                                    backgroundRepeat: "repeat-y",
-                                    backgroundSize: "15px 24px",
-                                }}
-                            />
+                            <svg
+                                width="100%"
+                                height="100%"
+                                viewBox="0 0 300 60"
+                                preserveAspectRatio="none"
+                                // Removed mix-blend-multiply so it's opaque
+                                className="drop-shadow-sm text-[#E8E3C7]"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    // Added black border
+                                    stroke="black"
+                                    strokeWidth="1.5"
+                                    d="M5 0 L295 0 L300 5 L295 10 L300 15 L295 20 L300 25 L295 30 L300 35 L295 40 L300 45 L295 50 L300 55 L295 60 L5 60 L0 55 L5 50 L0 45 L5 40 L0 35 L5 30 L0 25 L5 20 L0 15 L5 10 L0 5 Z"
+                                />
+                                {/* Subtle texture wrinkles */}
+                                <path
+                                    d="M20 10 Q 50 15 80 10 M 200 50 Q 230 45 260 50"
+                                    stroke="black"
+                                    strokeOpacity="0.1"
+                                    strokeWidth="1"
+                                    fill="none"
+                                />
+                            </svg>
                         </div>
+                        {/* END UPDATED TAPE EFFECT */}
+
                     </div>
                 </div>
 
@@ -99,25 +99,30 @@ export default function Hero() {
                 {/* Feature Circles Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 w-full max-w-6xl mx-auto pt-8">
                     <FeatureCircle
-                        src="/images/yellow-box.png"
+                        src="/images/big_box.png"
                         alt="Colorful Boxes"
-                        bgColor="#FFF5E1"
+                        bgColor="#d5ffb0ff"
+                        title="Heavy Duty Corrugated Boxes"
+
                     />
                     <FeatureCircle
-                        src="/images/yellow-box.png"
+                        src="/images/Packet.png"
                         alt="Stacked Boxes"
-                        bgColor="#FFF"
+                        bgColor="#fcb5b5ff"
+                        zoom={2.0}
+                        title="Zip Lock Pouch"
                     />
                     <FeatureCircle
                         src="/images/yellow-box.png"
                         alt="Tape"
-                        bgColor="#635BFF"
-                        borderColor="#635BFF"
+                        bgColor="#d2d0ffff"
+                        title="Reagular Boxes"
                     />
                     <FeatureCircle
-                        src="/images/yellow-box.png"
+                        src="/images/Food_box.png"
                         alt="Luxury Items"
-                        bgColor="#FFF"
+                        bgColor="#fffc9cff"
+                        title="Food Packaging Boxes"
                     />
                 </div>
 
