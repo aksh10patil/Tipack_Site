@@ -12,6 +12,7 @@ import {
   ClipboardList,
   Stamp
 } from "lucide-react";
+import Link from "next/link";
 
 export default function ServicesPage() {
   // --- STATE ---
@@ -291,9 +292,11 @@ export default function ServicesPage() {
              </div>
 
              <div className="mt-8 pt-8 border-t border-white/20 flex justify-end">
+             <Link href="/Contact" >
                 <button className="bg-[#60A5FA] text-black px-8 py-3 font-bold border-2 border-transparent hover:border-white transition-all uppercase tracking-wider">
                     Request CAD Files
                 </button>
+             </Link> 
              </div>
           </div>
         </div>

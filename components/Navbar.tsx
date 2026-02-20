@@ -70,13 +70,15 @@ export default function Navbar() {
 
             {/* --- PRODUCTS DROPDOWN --- */}
             <div className="group relative h-full">
-              <div className="flex items-center gap-1 cursor-pointer py-2">
+              <Link href="/Products">
+               <div className="flex items-center gap-1 cursor-pointer py-2">
                 Products{" "}
                 <ChevronDown
                   size={14}
                   className="group-hover:rotate-180 transition-transform duration-200"
                 />
-              </div>
+              </div></Link>
+             
 
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 pt-4 w-64 hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">
@@ -112,6 +114,7 @@ export default function Navbar() {
 
             {/* --- SERVICES DROPDOWN --- */}
             <div className="group relative h-full">
+              <Link href="/Services">
               <div className="flex items-center gap-1 cursor-pointer py-2">
                 Services{" "}
                 <ChevronDown
@@ -119,6 +122,7 @@ export default function Navbar() {
                   className="group-hover:rotate-180 transition-transform duration-200"
                 />
               </div>
+              </Link>
 
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 pt-4 w-64 hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">

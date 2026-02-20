@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FeatureCircle } from "./FeatureCircle";
 import { Button } from "./Button";
@@ -97,34 +98,99 @@ export default function Hero() {
                 </div>
 
                 {/* Feature Circles Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 w-full max-w-6xl mx-auto pt-8">
-                    <FeatureCircle
-                        src="/images/big_box.png"
-                        alt="Colorful Boxes"
-                        bgColor="#d5ffb0ff"
-                        title="Heavy Duty Corrugated Boxes"
-
-                    />
-                    <FeatureCircle
-                        src="/images/Packet.png"
-                        alt="Stacked Boxes"
-                        bgColor="#fcb5b5ff"
-                        zoom={2.0}
-                        title="Zip Lock Pouch"
-                    />
-                    <FeatureCircle
-                        src="/images/yellow-box.png"
-                        alt="Tape"
-                        bgColor="#d2d0ffff"
-                        title="Reagular Boxes"
-                    />
-                    <FeatureCircle
-                        src="/images/Food_box.png"
-                        alt="Luxury Items"
-                        bgColor="#fffc9cff"
-                        title="Food Packaging Boxes"
-                    />
-                </div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.15
+                            }
+                        }
+                    }}
+                    className="flex flex-wrap justify-center gap-8 md:gap-12 w-full max-w-6xl mx-auto pt-12 pb-16"
+                >
+                    {[
+                        {
+                            src: "/images/big_box.png",
+                            alt: "Heavy Duty Corrugated Boxes",
+                            bgColor: "#d5ffb0ff",
+                            title: "Heavy Duty Corrugated Boxes"
+                        },
+                        {
+                            src: "/images/packet.png",
+                            alt: "Zip Lock Pouch",
+                            bgColor: "#fcb5b5ff",
+                            zoom: 2.0,
+                            title: "Zip Lock Pouch"
+                        },
+                        {
+                            src: "/images/yellow-box.png",
+                            alt: "Regular Boxes",
+                            bgColor: "#d2d0ffff",
+                            title: "Regular Boxes"
+                        },
+                        {
+                            src: "/images/Food_box.png",
+                            alt: "Food Packaging Boxes",
+                            bgColor: "#fffc9cff",
+                            title: "Food Packaging Boxes"
+                        },
+                        {
+                            src: "/images/Layered_boxes.png",
+                            alt: "Layered Boxes",
+                            bgColor: "#ffd0edff",
+                            title: "Layered Boxes"
+                        },
+                        {
+                            src: "/images/wardrobe_box.png",
+                            alt: "Wardrobe Box",
+                            bgColor: "#ffdfb0ff",
+                            title: "Wardrobe Box"
+                        }
+                    ].map((item, index) => (
+                        <motion.div
+                            key={index}
+                            variants={{
+                                hidden: { opacity: 0, y: 40, scale: 0.8 },
+                                show: {
+                                    opacity: 1,
+                                    y: 0,
+                                    scale: 1,
+                                    transition: {
+                                        type: "spring",
+                                        stiffness: 80,
+                                        damping: 10
+                                    }
+                                }
+                            }}
+                            className="flex justify-center w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-3rem)] min-w-[200px]"
+                        >
+                            <motion.div
+                                animate={{ y: [0, -12, 0] }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                    ease: "easeInOut",
+                                    delay: index * 0.2
+                                }}
+                                className="w-full flex justify-center"
+                            >
+                                <FeatureCircle
+                                    src={item.src}
+                                    alt={item.alt}
+                                    bgColor={item.bgColor}
+                                    zoom={item.zoom}
+                                    title={item.title}
+                                />
+                            </motion.div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
             </div>
         </section>

@@ -13,6 +13,7 @@ import {
   Hexagon,
   Triangle
 } from "lucide-react";
+import Link from "next/link";
 
 export default function BrandsPage() {
   // --- DESIGN CONSTANTS ---
@@ -41,7 +42,7 @@ export default function BrandsPage() {
     {
       id: "LOG-02",
       company: "VOLT TECH",
-      text: "Finally, packaging that doesn't look like it came from a gift shop. Matches our hardware perfectly. Ugly, strong, cheap.",
+      text: "Finally, packaging that doesn't look like it came from a gift shop. Matches our hardware perfectly. Awesome, strong, cheap.",
       author: "Mike R. // Lead Engineer"
     }
   ];
@@ -118,7 +119,7 @@ export default function BrandsPage() {
                 </div>
                 
                 {/* Text */}
-                <h3 className="text-2xl font-black uppercase tracking-tighter mb-1  text-white px-2 transform group-hover:rotate-2 transition-transform">
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-1 px-2 transform group-hover:rotate-2 transition-transform">
                   {brand.name}
                 </h3>
                 <p className="font-mono text-xs text-gray-500 mt-2 uppercase tracking-widest">
@@ -194,9 +195,11 @@ export default function BrandsPage() {
                 Join The Fleet
               </h2>
               <p className="font-bold text-lg mb-6">Apply for a wholesale account.</p>
+              <Link href="/Contact">
               <div className="flex items-center gap-2 font-black uppercase border-b-2 border-black pb-0.5 hover:pb-1 transition-all">
                 Start Application <ArrowUpRight size={24} />
               </div>
+              </Link>
             </div>
           </div>
         </div>

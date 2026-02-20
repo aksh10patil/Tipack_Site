@@ -4,7 +4,7 @@ import { ArrowRight, Box } from 'lucide-react';
 interface TipackFeatureCardProps {
     title: string;
     description: string;
-    variant?: 'purple' | 'green' | 'yellow' | 'default';
+    variant?: 'purple' | 'green' | 'yellow' | 'blue' | 'red' | 'orange' | 'default';
     icon?: React.ReactElement<{
         className?: string;
         strokeWidth?: number;
@@ -22,7 +22,7 @@ export default function TipackFeatureCard({
 }: TipackFeatureCardProps) {
     // We map variants to accent colors for the blob and icon, 
     // keeping the card base white to match the newsletter style.
-    const accents = {
+    const accents: Record<NonNullable<TipackFeatureCardProps['variant']>, any> = {
         purple: {
             blob: 'bg-[var(--color-secondary)]',
             iconBg: 'bg-[var(--color-secondary)]/10',
@@ -37,6 +37,21 @@ export default function TipackFeatureCard({
             blob: 'bg-[var(--color-primary)]',
             iconBg: 'bg-[var(--color-primary)]/20',
             iconColor: 'text-amber-700'
+        },
+        blue: {
+            blob: 'bg-blue-500',
+            iconBg: 'bg-blue-100',
+            iconColor: 'text-blue-600'
+        },
+        red: {
+            blob: 'bg-red-500',
+            iconBg: 'bg-red-100',
+            iconColor: 'text-red-600'
+        },
+        orange: {
+            blob: 'bg-orange-500',
+            iconBg: 'bg-orange-100',
+            iconColor: 'text-orange-600'
         },
         default: {
             blob: 'bg-gray-200',
@@ -63,14 +78,14 @@ export default function TipackFeatureCard({
                 hover:-translate-y-1
                 overflow-hidden
             ">
-                
+
                 {/* Decorative Background Blob (like the Newsletter) */}
-                <div 
+                <div
                     className={`
                         absolute -top-12 -right-12 w-40 h-40 rounded-full blur-2xl opacity-20 
                         transition-transform duration-500 group-hover:scale-150
                         ${currentStyle.blob}
-                    `} 
+                    `}
                 />
 
                 {/* Content Wrapper */}
@@ -82,20 +97,20 @@ export default function TipackFeatureCard({
                         transition-transform duration-300 group-hover:rotate-6
                         ${currentStyle.iconBg} ${currentStyle.iconColor}
                     `}>
-                      {icon
-    ? React.cloneElement(icon, {
-          className: "w-8 h-8",
-          strokeWidth: 2.5,
-      })
-    : <Box size={32} strokeWidth={2.5} />
-}
+                        {icon
+                            ? React.cloneElement(icon, {
+                                className: "w-8 h-8",
+                                strokeWidth: 2.5,
+                            })
+                            : <Box size={32} strokeWidth={2.5} />
+                        }
 
                     </div>
 
                     <h3 className="text-2xl font-black font-heading tracking-tight mb-3 text-[var(--color-text-main)]">
                         {title}
                     </h3>
-                    
+
                     <p className="text-[var(--color-text-sub)] font-medium leading-relaxed mb-8">
                         {description}
                     </p>
@@ -104,7 +119,7 @@ export default function TipackFeatureCard({
                 {/* Action Area */}
                 <div className="relative z-10 mt-auto">
                     <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--color-text-main)] group/btn">
-                        Learn more 
+                        Learn more
                         <span className="bg-[var(--color-text-main)] text-white rounded-full p-1 transition-transform group-hover/btn:translate-x-1">
                             <ArrowRight size={14} />
                         </span>
