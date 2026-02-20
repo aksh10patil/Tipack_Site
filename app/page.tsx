@@ -131,7 +131,7 @@ export default function TipackDemoPage() {
 
             </div>
 
-               <TipackFooter />
+            
 
         </>
 

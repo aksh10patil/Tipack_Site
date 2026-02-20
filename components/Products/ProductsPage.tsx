@@ -10,6 +10,7 @@ import {
   Trash2,
   CheckCircle
 } from "lucide-react";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -245,9 +246,10 @@ export default function ProductsPage() {
             <div className="md:col-start-2 border-2 border-black p-6 flex flex-col justify-center items-center text-center text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,0.2)]">
               <h3 className="text-2xl font-black mb-2">Need Custom Print?</h3>
               <p className="text-sm text-white font-bold mb-6">We can stamp your ugly logo on any of these mailers.</p>
+              <Link href="/Contact">
               <button className="px-6 py-2 bg-[#FFFEF9] text-black font-bold border-2 border-black hover:border-[#F4D03F] transition-colors">
                 Get a Quote
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

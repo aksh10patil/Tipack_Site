@@ -6,7 +6,7 @@ export default function Products() {
         <>
             <div>
                 <ProductsPage />
-                <TipackFooter />
+             
             </div>
         </>
     );

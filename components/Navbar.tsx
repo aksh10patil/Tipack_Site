@@ -150,13 +150,13 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="#" className="hover:opacity-70 transition-opacity">
+            <Link href="/Brands" className="hover:opacity-70 transition-opacity">
               Brands
             </Link>
-            <Link href="#" className="hover:opacity-70 transition-opacity">
+            <Link href="/Catalog" className="hover:opacity-70 transition-opacity">
               Catalog
             </Link>
-            <Link href="#" className="hover:opacity-70 transition-opacity">
+            <Link href="/Pricing" className="hover:opacity-70 transition-opacity">
               Pricing
             </Link>
           </div>
@@ -174,17 +174,19 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="hidden md:flex items-center gap-6 z-10">
             <Link
-              href="#"
+              href="/Contact"
               className="text-sm font-medium text-[#2D2424] hover:opacity-70 transition-opacity"
             >
               Submit Request
             </Link>
-            <Button
+            <Link href="/Contact">
+             <Button
               variant="primary"
               className="bg-white text-black border-2 border-black shadow-none hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all"
             >
               Contact Us
-            </Button>
+            </Button></Link>
+           
           </div>
 
           {/* Mobile Menu Button */}
