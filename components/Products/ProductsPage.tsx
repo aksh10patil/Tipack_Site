@@ -8,7 +8,7 @@ import {
   Mail,
   X,
   Trash2,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -41,28 +41,82 @@ export default function ProductsPage() {
 
   // --- DATA MOCKUPS (Updated with Images) ---
   const boxes = [
-    { id: 1, name: "Heavy Duty Corrugated", size: "12x12x12", price: 2.50, badge: "Best Seller", image: "/images/big_box.png" },
-    { id: 2, name: "Standard Shipping Box", size: "10x8x6", price: 1.20, badge: null, image: "/images/yellow-box.png" },
-    { id: 3, name: "Wardrobe Moving Box", size: "24x24x40", price: 12.00, badge: "New", image: "/images/wardrobe_box.png" },
-    { id: 4, name: "Flat Multi-Depth Box", size: "Varied", price: 3.10, badge: null, image: "/images/Layered_Boxes.png" },
-  ];
-
-  const mailers = [
-    { id: 5, name: "Kraft Bubble Mailer", size: "#0 (6x9)", price: 0.45, badge: "Eco-Friendly", image: "https://images.unsplash.com/photo-1629896841164-9842dc9352e6?auto=format&fit=crop&q=80&w=400" },
-    { id: 6, name: "Poly Weatherproof", size: "10x13", price: 0.30, badge: "Bulk Save", image: "https://images.unsplash.com/photo-1565356514749-1d48c95027c4?auto=format&fit=crop&q=80&w=400" },
-    { id: 7, name: "Rigid Photo Mailer", size: "9x11.5", price: 0.85, badge: null, image: "https://images.unsplash.com/photo-1623862277370-16b7eb423631?auto=format&fit=crop&q=80&w=400" },
+    {
+      id: 1,
+      name: "Heavy Duty Corrugated Boxes",
+      size: "12x12x12",
+      price: 2.5,
+      badge: "Best Seller",
+      image: "/images/big_box.png",
+    },
+    {
+      id: 2,
+      name: "Zip Lock Pouch",
+      size: "Varied",
+      price: 1.2,
+      badge: null,
+      image: "/images/packet.png",
+    },
+    {
+      id: 3,
+      name: "Food Packaging Boxes",
+      size: "Varied",
+      price: 3.1,
+      badge: "Eco",
+      image: "/images/Food_box.png",
+    },
+    {
+      id: 4,
+      name: "Layered Boxes",
+      size: "Multi-Depth",
+      price: 3.5,
+      badge: null,
+      image: "/images/Layered_boxes.png",
+    },
+    {
+      id: 5,
+      name: "Heavy Duty Cube",
+      size: "18x18x18",
+      price: 4.0,
+      badge: null,
+      image: "/images/heavy_duty_cube.png",
+    },
+    {
+      id: 6,
+      name: "Wardrobe Box",
+      size: "24x24x40",
+      price: 12.0,
+      badge: "Apparel",
+      image: "/images/wardrobe_box.png",
+    },
   ];
 
   const clearance = [
-    { id: 8, name: "Misprint Tape Rolls", desc: "Logo slightly off-center", price: 0.99, oldPrice: "$4.50", image: "https://images.unsplash.com/photo-1598219660205-592f750b3cb1?auto=format&fit=crop&q=80&w=400" },
-    { id: 9, name: "Overstock Peanuts", desc: "Huge bag, takes up space", price: 15.00, oldPrice: "$45.00", image: "https://images.unsplash.com/photo-1623945205423-f252643a6c9d?auto=format&fit=crop&q=80&w=400" },
+    {
+      id: 8,
+      name: "Misprint Tape Rolls",
+      desc: "Logo slightly off-center",
+      price: 0.99,
+      oldPrice: "$4.50",
+      image:
+        "https://images.unsplash.com/photo-1598219660205-592f750b3cb1?auto=format&fit=crop&q=80&w=400",
+    },
+    {
+      id: 9,
+      name: "Overstock Peanuts",
+      desc: "Huge bag, takes up space",
+      price: 15.0,
+      oldPrice: "$45.00",
+      image:
+        "https://images.unsplash.com/photo-1623945205423-f252643a6c9d?auto=format&fit=crop&q=80&w=400",
+    },
   ];
 
   // --- ACTIONS ---
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -83,7 +137,6 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-[#FFFEF9] text-[#2D2424] font-sans pt-24 pb-20 relative overflow-x-hidden">
-
       {/* Global Background Texture */}
       <div
         className="fixed inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
@@ -105,14 +158,17 @@ export default function ProductsPage() {
 
       {/* --- LEFT SIDEBAR CART --- */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-80 bg-[#FFFEF9] border-r-2 border-black transform transition-transform duration-300 ease-in-out shadow-[10px_0px_20px_rgba(0,0,0,0.1)] ${isCartOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`fixed inset-y-0 left-0 z-50 w-80 bg-[#FFFEF9] border-r-2 border-black transform transition-transform duration-300 ease-in-out shadow-[10px_0px_20px_rgba(0,0,0,0.1)] ${isCartOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="h-full flex flex-col">
           <div className="bg-[#F4D03F] p-4 border-b-2 border-black flex justify-between items-center">
             <h2 className="font-black text-xl uppercase flex items-center gap-2">
               <ShoppingCart size={20} /> Your Crate
             </h2>
-            <button onClick={() => setIsCartOpen(false)} className="hover:bg-black hover:text-white p-1 rounded-sm transition-colors">
+            <button
+              onClick={() => setIsCartOpen(false)}
+              className="hover:bg-black hover:text-white p-1 rounded-sm transition-colors"
+            >
               <X size={24} />
             </button>
           </div>
@@ -124,12 +180,22 @@ export default function ProductsPage() {
               </div>
             ) : (
               cart.map((item, idx) => (
-                <div key={idx} className="flex justify-between items-start border-b border-dashed border-gray-400 pb-2">
+                <div
+                  key={idx}
+                  className="flex justify-between items-start border-b border-dashed border-gray-400 pb-2"
+                >
                   <div>
-                    <p className="font-bold text-sm leading-tight">{item.name}</p>
-                    <p className="text-xs text-gray-500 font-mono">${item.price.toFixed(2)}</p>
+                    <p className="font-bold text-sm leading-tight">
+                      {item.name}
+                    </p>
+                    <p className="text-xs text-gray-500 font-mono">
+                      ${item.price.toFixed(2)}
+                    </p>
                   </div>
-                  <button onClick={() => removeFromCart(idx)} className="text-red-500 hover:text-red-800">
+                  <button
+                    onClick={() => removeFromCart(idx)}
+                    className="text-red-500 hover:text-red-800"
+                  >
                     <Trash2 size={16} />
                   </button>
                 </div>
@@ -163,7 +229,6 @@ export default function ProductsPage() {
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
-
         {/* --- HERO SECTION --- */}
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div>
@@ -185,22 +250,14 @@ export default function ProductsPage() {
           {/* Filter Bar styled as a physical toolbar */}
           <div className="w-full md:w-auto bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-wrap gap-2">
             <button
-              onClick={() => handleScrollTo('boxes')}
+              onClick={() => handleScrollTo("boxes")}
               className="flex items-center gap-2 px-4 py-2 bg-[#F4D03F] border-2 border-black font-bold hover:translate-y-0.5 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
               <Box size={18} /> Boxes
             </button>
             <button
-              onClick={() => handleScrollTo('mailers')}
-              className="flex items-center gap-2 px-4 py-2  bg-[#86EFAC]
- border-2 border-black font-bold hover:bg-gray-50 hover:translate-y-0.5 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-            >
-              <Mail size={18} /> Mailers
-            </button>
-            <button
-              onClick={() => handleScrollTo('clearance')}
-              className="flex items-center gap-2 px-4 py-2  bg-[#FECACA]
- border-2 border-black font-bold hover:bg-red-50 hover:text-red-600 hover:translate-y-0.5 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              onClick={() => handleScrollTo("clearance")}
+              className="flex items-center gap-2 px-4 py-2 bg-[#FECACA] border-2 border-black font-bold hover:bg-red-50 hover:text-red-600 hover:translate-y-0.5 hover:shadow-none transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
             >
               <AlertTriangle size={18} /> Clearance
             </button>
@@ -211,8 +268,20 @@ export default function ProductsPage() {
         <div id="boxes" className="mb-20 scroll-mt-24">
           {/* Tape Header Component */}
           <div className="relative inline-block mb-8 transform -rotate-1">
-            <div className="absolute left-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedEdgeLeft}")`, backgroundSize: "12px 12px" }} />
-            <div className="absolute right-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedEdgeRight}")`, backgroundSize: "12px 12px" }} />
+            <div
+              className="absolute left-[-11px] top-0 bottom-0 w-[12px]"
+              style={{
+                backgroundImage: `url("${serratedEdgeLeft}")`,
+                backgroundSize: "12px 12px",
+              }}
+            />
+            <div
+              className="absolute right-[-11px] top-0 bottom-0 w-[12px]"
+              style={{
+                backgroundImage: `url("${serratedEdgeRight}")`,
+                backgroundSize: "12px 12px",
+              }}
+            />
             <div className="bg-[#F4D03F] px-8 py-2 text-2xl font-black uppercase tracking-tight shadow-[0px_4px_6px_rgba(0,0,0,0.1)]">
               Corrugated Boxes
             </div>
@@ -225,92 +294,21 @@ export default function ProductsPage() {
             ))}
           </div>
         </div>
-
-        {/* --- SECTION: MAILERS --- */}
-        <div id="mailers" className="mb-20 scroll-mt-24">
-          {/* Tape Header Component */}
-          <div className="relative inline-block mb-8 transform rotate-1">
-            <div className="absolute left-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedEdgeLeft}")`, backgroundSize: "12px 12px" }} />
-            <div className="absolute right-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedEdgeRight}")`, backgroundSize: "12px 12px" }} />
-            <div className="bg-[#F4D03F] px-8 py-2 text-2xl font-black uppercase tracking-tight shadow-[0px_4px_6px_rgba(0,0,0,0.1)]">
-              Envelopes & Mailers
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {mailers.map((item) => (
-              <ProductCard key={item.id} item={item} onAdd={addToCart} />
-            ))}
-
-            {/* Promo Card: Centered on the next row (start at col 2) */}
-            <div className="md:col-start-2 border-2 border-black p-6 flex flex-col justify-center items-center text-center text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,0.2)]">
-              <h3 className="text-2xl text-black mb-2">Need Custom Print?</h3>
-              <p className="text-sm text-black font-bold mb-6">We can stamp your beautiful logo on any of these mailers.</p>
-              <Link href="/Contact">
-              <button className="px-6 py-2 bg-[#FFFEF9] text-black font-bold border-2 border-black hover:border-[#F4D03F] transition-colors">
-                Get a Quote
-              </button></Link>
-            </div>
-          </div>
-        </div>
-
-        {/* --- SECTION: CLEARANCE --- */}
-        <div id="clearance" className="mb-20 scroll-mt-24">
-          {/* Red Tape Header */}
-          <div className="relative inline-block mb-8 transform -rotate-1">
-            <div className="absolute left-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedRedLeft}")`, backgroundSize: "12px 12px" }} />
-            <div className="absolute right-[-11px] top-0 bottom-0 w-[12px]" style={{ backgroundImage: `url("${serratedRedRight}")`, backgroundSize: "12px 12px" }} />
-            <div className="bg-[#FF4D4D] text-white px-8 py-2 text-2xl font-black uppercase tracking-tight shadow-[0px_4px_6px_rgba(0,0,0,0.1)] flex items-center gap-2">
-              <AlertTriangle size={24} strokeWidth={3} />
-              The Boneyard
-            </div>
-          </div>
-
-          <div className="bg-white border-2 border-black shadow-[8px_8px_0px_0px_#FF4D4D] p-8 relative">
-            {/* Background stripes for hazard look */}
-            <div className="absolute top-0 left-0 right-0 h-4 bg-[repeating-linear-gradient(45deg,#000,#000_10px,#FF4D4D_10px,#FF4D4D_20px)] border-b-2 border-black"></div>
-
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-              {clearance.map((item) => (
-                <div key={item.id} className="flex items-start gap-4 group cursor-pointer">
-                  <div className="w-24 h-24 bg-gray-100 border-2 border-black flex items-center justify-center relative overflow-hidden flex-shrink-0">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
-                    <div className="absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold px-1 z-10">
-                      -60%
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold decoration-2 group-hover:underline decoration-[#FF4D4D] underline-offset-4">
-                      {item.name}
-                    </h4>
-                    <p className="text-sm font-medium text-gray-500 mb-2">{item.desc}</p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg font-black text-red-600">${item.price.toFixed(2)}</span>
-                      <span className="text-sm text-gray-400 line-through decoration-2">{item.oldPrice}</span>
-                    </div>
-                    <button
-                      onClick={() => addToCart(item)}
-                      className="text-xs font-bold uppercase tracking-widest mt-2 hover:bg-black hover:text-white px-2 py-1 transition-colors border border-black"
-                    >
-                      Add to cart &rarr;
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );
 }
 
 // --- SUB-COMPONENT: PRODUCT CARD ---
-function ProductCard({ item, onAdd }: { item: Product; onAdd: (item: Product) => void }) {
+function ProductCard({
+  item,
+  onAdd,
+}: {
+  item: Product;
+  onAdd: (item: Product) => void;
+}) {
   return (
     <div className="group relative bg-white border-2 border-black p-4 flex flex-col h-full transition-all duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-
       {/* Badge (Absolute positioned sticker) */}
       {item.badge && (
         <div className="absolute -top-3 -right-3 bg-[#F4D03F] text-black text-xs font-black px-3 py-1 border-2 border-black transform rotate-6 z-10 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]">
@@ -328,7 +326,11 @@ function ProductCard({ item, onAdd }: { item: Product; onAdd: (item: Product) =>
         {/* Overlay Grid */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '10px 10px' }}
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #000 1px, transparent 1px)",
+            backgroundSize: "10px 10px",
+          }}
         />
       </div>
 

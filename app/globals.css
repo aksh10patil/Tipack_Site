@@ -2,17 +2,17 @@
 
 :root {
   /* Truth Colors */
-  --color-base: #FFFEF9;
+  --color-base: #fffef9;
   /* Light cream background */
-  --color-primary: #FFCA41;
+  --color-primary: #ffca41;
   /* Golden Yellow for buttons */
-  --color-secondary: #635BFF;
+  --color-secondary: #635bff;
   /* Purple accent */
-  --color-text-main: #2D2424;
+  --color-text-main: #2d2424;
   /* Dark brown/black for main text */
-  --color-text-sub: #5C5454;
+  --color-text-sub: #5c5454;
   /* Lighter text for subheadings */
-  --color-accent-green: #00D64F;
+  --color-accent-green: #00d64f;
   /* Vibrant green for success/features */
 
   /* Grid Pattern Configuration */

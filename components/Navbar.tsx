@@ -2,7 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, Box, Printer, Truck, PenTool, Package } from "lucide-react";
+import {
+  ChevronDown,
+  Menu,
+  X,
+  Box,
+  Printer,
+  Truck,
+  PenTool,
+  Package,
+} from "lucide-react";
 import { Button } from "./Button";
 
 export default function Navbar() {
@@ -54,7 +63,6 @@ export default function Navbar() {
 
         {/* Main Tape Body */}
         <nav className="relative bg-[#F4D03F] px-6 py-4 flex items-center justify-between">
-
           {/* Texture Overlay */}
           <div
             className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply"
@@ -67,18 +75,17 @@ export default function Navbar() {
 
           {/* Left Links (Desktop) */}
           <div className="hidden md:flex items-center gap-8 text-sm font-bold text-[#2D2424] z-10">
-
             {/* --- PRODUCTS DROPDOWN --- */}
             <div className="group relative h-full">
               <Link href="/Products">
-               <div className="flex items-center gap-1 cursor-pointer py-2">
-                Products{" "}
-                <ChevronDown
-                  size={14}
-                  className="group-hover:rotate-180 transition-transform duration-200"
-                />
-              </div></Link>
-             
+                <div className="flex items-center gap-1 cursor-pointer py-2">
+                  Products{" "}
+                  <ChevronDown
+                    size={14}
+                    className="group-hover:rotate-180 transition-transform duration-200"
+                  />
+                </div>
+              </Link>
 
               {/* Dropdown Menu */}
               <div className="absolute top-full left-0 pt-4 w-64 hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">
@@ -87,25 +94,42 @@ export default function Navbar() {
                   {/* Little triangle pointer (optional aesthetic) */}
                   <div className="absolute -top-[9px] left-4 w-4 h-4 bg-[#FFFEF9] border-l-2 border-t-2 border-black transform rotate-45"></div>
 
-                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                  <Link
+                    href="/Products"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
                     <Box size={18} className="mt-0.5" />
                     <div>
                       <div className="text-sm font-black">Boxes & Mailers</div>
-                      <div className="text-xs font-normal opacity-70">Corrugated & rigid options</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Corrugated & rigid options
+                      </div>
                     </div>
                   </Link>
-                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                  <Link
+                    href="/Products"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
                     <Package size={18} className="mt-0.5" />
                     <div>
                       <div className="text-sm font-black">Adhesives</div>
-                      <div className="text-xs font-normal opacity-70">Tapes, glues & sealants</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Tapes, glues & sealants
+                      </div>
                     </div>
                   </Link>
-                  <Link href="/Products" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
-                    <div className="w-[18px] text-center font-serif italic font-bold">!</div>
+                  <Link
+                    href="/Products"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
+                    <div className="w-[18px] text-center font-serif italic font-bold">
+                      !
+                    </div>
                     <div>
                       <div className="text-sm font-black">Clearance</div>
-                      <div className="text-xs font-normal opacity-70">Last chance items</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Last chance items
+                      </div>
                     </div>
                   </Link>
                 </div>
@@ -115,13 +139,13 @@ export default function Navbar() {
             {/* --- SERVICES DROPDOWN --- */}
             <div className="group relative h-full">
               <Link href="/Services">
-              <div className="flex items-center gap-1 cursor-pointer py-2">
-                Services{" "}
-                <ChevronDown
-                  size={14}
-                  className="group-hover:rotate-180 transition-transform duration-200"
-                />
-              </div>
+                <div className="flex items-center gap-1 cursor-pointer py-2">
+                  Services{" "}
+                  <ChevronDown
+                    size={14}
+                    className="group-hover:rotate-180 transition-transform duration-200"
+                  />
+                </div>
               </Link>
 
               {/* Dropdown Menu */}
@@ -129,38 +153,62 @@ export default function Navbar() {
                 <div className="bg-[#FFFEF9] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 flex flex-col gap-2 relative">
                   <div className="absolute -top-[9px] left-4 w-4 h-4 bg-[#FFFEF9] border-l-2 border-t-2 border-black transform rotate-45"></div>
 
-                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                  <Link
+                    href="/Services"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
                     <Printer size={18} className="mt-0.5" />
                     <div>
                       <div className="text-sm font-black">Custom Printing</div>
-                      <div className="text-xs font-normal opacity-70">Branded packaging</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Branded packaging
+                      </div>
                     </div>
                   </Link>
-                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                  <Link
+                    href="/Services"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
                     <Truck size={18} className="mt-0.5" />
                     <div>
                       <div className="text-sm font-black">Logistics</div>
-                      <div className="text-xs font-normal opacity-70">Warehousing & shipping</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Warehousing & shipping
+                      </div>
                     </div>
                   </Link>
-                  <Link href="/Services" className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black">
+                  <Link
+                    href="/Services"
+                    className="flex items-start gap-3 p-2 hover:bg-[#F4D03F] transition-colors border border-transparent hover:border-black"
+                  >
                     <PenTool size={18} className="mt-0.5" />
                     <div>
                       <div className="text-sm font-black">Design Studio</div>
-                      <div className="text-xs font-normal opacity-70">Get help with artwork</div>
+                      <div className="text-xs font-normal opacity-70">
+                        Get help with artwork
+                      </div>
                     </div>
                   </Link>
                 </div>
               </div>
             </div>
 
-            <Link href="/Brands" className="hover:opacity-70 transition-opacity">
+            <Link
+              href="/Brands"
+              className="hover:opacity-70 transition-opacity"
+            >
               Brands
             </Link>
-            <Link href="/Catalog" className="hover:opacity-70 transition-opacity">
+            <Link
+              href="/Catalog"
+              className="hover:opacity-70 transition-opacity"
+            >
               Catalog
             </Link>
-            <Link href="/Pricing" className="hover:opacity-70 transition-opacity">
+            <Link
+              href="/Pricing"
+              className="hover:opacity-70 transition-opacity"
+            >
               Pricing
             </Link>
           </div>
@@ -184,13 +232,13 @@ export default function Navbar() {
               Submit Request
             </Link>
             <Link href="/Contact">
-             <Button
-              variant="primary"
-              className="bg-white text-black border-2 border-black shadow-none hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all"
-            >
-              Contact Us
-            </Button></Link>
-           
+              <Button
+                variant="primary"
+                className="bg-white text-black border-2 border-black shadow-none hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -208,23 +256,41 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="absolute top-[calc(100%_+_10px)] left-0 right-0 p-6 bg-[#FFFEF9] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1 animate-in slide-in-from-top-2 duration-200 z-40">
             <div className="flex flex-col space-y-4 text-center text-[#2D2424] font-bold">
-              <Link href="/Products" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="/Products"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Products
               </Link>
-              <Link href="/Services" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="/Services"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Services
               </Link>
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Brands
               </Link>
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Catalog
               </Link>
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Pricing
               </Link>
               <hr className="border-black opacity-20" />
-              <Link href="#" className="hover:text-yellow-600 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-yellow-600 transition-colors"
+              >
                 Submit Request
               </Link>
               <Button
